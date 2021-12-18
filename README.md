@@ -20,4 +20,6 @@ python evaluate.py /tmp/WIDERFACE/wider_face_split/wider_face_val_bbx_gt.txt --d
 cd widerface_evaluate
 python evaluation.py
 ```
-
+项目日志通过Logger保存在Experiments文件夹下
+原始精度0.902 0.892 0.797
+实现精度0.902 0.892 0.797
