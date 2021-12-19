@@ -8,7 +8,8 @@ This is a PaddlePaddle implementation of Peiyun Hu's awesome tiny face detector.
 |--WIDER_val
 |--wider_face_split
 ```
-本仓库利用四卡1080ti耗时三天训练100个epoch，所有文件在此处下载
+本仓库利用四卡1080ti耗时三天训练100个epoch，所有文件在[此处下载](https://pan.baidu.com/s/1grltos3o03ybsRwNdy8-DA)，code:ser1
+
 训练时，下载initial.pdparams权重，运行run.sh
 ```
 bash run.sh
