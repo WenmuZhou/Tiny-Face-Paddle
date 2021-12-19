@@ -1,0 +1,301 @@
+Dataset loaded
+3226 samples in the val dataset
+Dataset loaded
+3226 samples in the val dataset
+W1218 22:14:15.121675  3061 device_context.cc:447] Please NOTE: device: 0, GPU Compute Capability: 7.0, Driver API Version: 10.1, Runtime API Version: 10.1
+W1218 22:14:15.125990  3061 device_context.cc:465] device: 0, cuDNN Version: 7.6.
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 263160/263160 [00:06<00:00, 38662.05it/s]
+/opt/conda/envs/python35-paddle120-env/lib/python3.7/site-packages/paddle/framework/io.py:415: DeprecationWarning: Using or importing the ABCs from 'collections' instead of from 'collections.abc' is deprecated, and in 3.8 it will stop working
+  if isinstance(obj, collections.Iterable) and not isinstance(obj, (
+  0%|                                                                                                                                                 | 0/3226 [00:00<?, ?it/s]/opt/conda/envs/python35-paddle120-env/lib/python3.7/site-packages/paddle/fluid/framework.py:744: DeprecationWarning: `np.bool` is a deprecated alias for the builtin `bool`. To silence this warning, use `bool` by itself. Doing this will not modify any behavior and is safe. If you specifically wanted the numpy scalar type, use `np.bool_` here.
+Deprecated in NumPy 1.20; for more details and guidance: https://numpy.org/devdocs/release/1.20.0-notes.html#deprecations
+  elif dtype == np.bool:
+/home/aistudio/Tiny-Face-Paddle/trainer.py:104: DeprecationWarning: `np.int` is a deprecated alias for the builtin `int`. To silence this warning, use `int` by itself. Doing this will not modify any behavior and is safe. When replacing `np.int`, you may wish to use e.g. `np.int64` or `np.int32` to specify the precision. If you wish to review your current use, check the release note link for additional information.
+Deprecated in NumPy 1.20; for more details and guidance: https://numpy.org/devdocs/release/1.20.0-notes.html#deprecations
+  np.int(min_side*scale))
+/home/aistudio/Tiny-Face-Paddle/utils/nms.py:35: DeprecationWarning: `np.int` is a deprecated alias for the builtin `int`. To silence this warning, use `int` by itself. Doing this will not modify any behavior and is safe. When replacing `np.int`, you may wish to use e.g. `np.int64` or `np.int32` to specify the precision. If you wish to review your current use, check the release note link for additional information.
+Deprecated in NumPy 1.20; for more details and guidance: https://numpy.org/devdocs/release/1.20.0-notes.html#deprecations
+  return np.array(keep).astype(np.int)
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 3226/3226 [31:22<00:00,  1.93it/s]
+evaluation.py:14: DeprecationWarning: `np.float` is a deprecated alias for the builtin `float`. To silence this warning, use `float` by itself. Doing this will not modify any behavior and is safe. If you specifically wanted the numpy scalar type, use `np.float64` here.
+Deprecated in NumPy 1.20; for more details and guidance: https://numpy.org/devdocs/release/1.20.0-notes.html#deprecations
+  from bbox import bbox_overlaps
+Reading Predictions : 100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 61/61 [00:01<00:00, 53.08it/s]
+Processing easy: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 61/61 [00:16<00:00,  3.96it/s]
+Processing medium: 100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 61/61 [00:16<00:00,  3.95it/s]
+Processing hard: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 61/61 [00:16<00:00,  3.95it/s]
+==================== Results ====================
+Easy   Val AP: 0.7564373927615888
+Medium Val AP: 0.7411127355485136
+Hard   Val AP: 0.6062013163122759
+=================================================
+Dataset loaded
+3226 samples in the val dataset
+Dataset loaded
+3226 samples in the val dataset
+W1218 22:46:48.155794  6159 device_context.cc:447] Please NOTE: device: 0, GPU Compute Capability: 7.0, Driver API Version: 10.1, Runtime API Version: 10.1
+W1218 22:46:48.160056  6159 device_context.cc:465] device: 0, cuDNN Version: 7.6.
+/opt/conda/envs/python35-paddle120-env/lib/python3.7/site-packages/paddle/framework/io.py:415: DeprecationWarning: Using or importing the ABCs from 'collections' instead of from 'collections.abc' is deprecated, and in 3.8 it will stop working
+  if isinstance(obj, collections.Iterable) and not isinstance(obj, (
+  0%|                                                                                                                                                 | 0/3226 [00:00<?, ?it/s]/opt/conda/envs/python35-paddle120-env/lib/python3.7/site-packages/paddle/fluid/framework.py:744: DeprecationWarning: `np.bool` is a deprecated alias for the builtin `bool`. To silence this warning, use `bool` by itself. Doing this will not modify any behavior and is safe. If you specifically wanted the numpy scalar type, use `np.bool_` here.
+Deprecated in NumPy 1.20; for more details and guidance: https://numpy.org/devdocs/release/1.20.0-notes.html#deprecations
+  elif dtype == np.bool:
+/home/aistudio/Tiny-Face-Paddle/trainer.py:104: DeprecationWarning: `np.int` is a deprecated alias for the builtin `int`. To silence this warning, use `int` by itself. Doing this will not modify any behavior and is safe. When replacing `np.int`, you may wish to use e.g. `np.int64` or `np.int32` to specify the precision. If you wish to review your current use, check the release note link for additional information.
+Deprecated in NumPy 1.20; for more details and guidance: https://numpy.org/devdocs/release/1.20.0-notes.html#deprecations
+  np.int(min_side*scale))
+/home/aistudio/Tiny-Face-Paddle/utils/nms.py:35: DeprecationWarning: `np.int` is a deprecated alias for the builtin `int`. To silence this warning, use `int` by itself. Doing this will not modify any behavior and is safe. When replacing `np.int`, you may wish to use e.g. `np.int64` or `np.int32` to specify the precision. If you wish to review your current use, check the release note link for additional information.
+Deprecated in NumPy 1.20; for more details and guidance: https://numpy.org/devdocs/release/1.20.0-notes.html#deprecations
+  return np.array(keep).astype(np.int)
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 3226/3226 [30:39<00:00,  1.96it/s]
+evaluation.py:14: DeprecationWarning: `np.float` is a deprecated alias for the builtin `float`. To silence this warning, use `float` by itself. Doing this will not modify any behavior and is safe. If you specifically wanted the numpy scalar type, use `np.float64` here.
+Deprecated in NumPy 1.20; for more details and guidance: https://numpy.org/devdocs/release/1.20.0-notes.html#deprecations
+  from bbox import bbox_overlaps
+Reading Predictions : 100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 61/61 [00:00<00:00, 85.40it/s]
+Processing easy: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 61/61 [00:16<00:00,  4.02it/s]
+Processing medium: 100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 61/61 [00:16<00:00,  4.02it/s]
+Processing hard: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 61/61 [00:16<00:00,  4.03it/s]
+==================== Results ====================
+Easy   Val AP: 0.8133379398474705
+Medium Val AP: 0.8030397895260986
+Hard   Val AP: 0.6833412658073962
+=================================================
+Dataset loaded
+3226 samples in the val dataset
+Dataset loaded
+3226 samples in the val dataset
+W1218 23:18:28.778678  9202 device_context.cc:447] Please NOTE: device: 0, GPU Compute Capability: 7.0, Driver API Version: 10.1, Runtime API Version: 10.1
+W1218 23:18:28.782864  9202 device_context.cc:465] device: 0, cuDNN Version: 7.6.
+/opt/conda/envs/python35-paddle120-env/lib/python3.7/site-packages/paddle/framework/io.py:415: DeprecationWarning: Using or importing the ABCs from 'collections' instead of from 'collections.abc' is deprecated, and in 3.8 it will stop working
+  if isinstance(obj, collections.Iterable) and not isinstance(obj, (
+  0%|                                                                                                                                                 | 0/3226 [00:00<?, ?it/s]/opt/conda/envs/python35-paddle120-env/lib/python3.7/site-packages/paddle/fluid/framework.py:744: DeprecationWarning: `np.bool` is a deprecated alias for the builtin `bool`. To silence this warning, use `bool` by itself. Doing this will not modify any behavior and is safe. If you specifically wanted the numpy scalar type, use `np.bool_` here.
+Deprecated in NumPy 1.20; for more details and guidance: https://numpy.org/devdocs/release/1.20.0-notes.html#deprecations
+  elif dtype == np.bool:
+/home/aistudio/Tiny-Face-Paddle/trainer.py:104: DeprecationWarning: `np.int` is a deprecated alias for the builtin `int`. To silence this warning, use `int` by itself. Doing this will not modify any behavior and is safe. When replacing `np.int`, you may wish to use e.g. `np.int64` or `np.int32` to specify the precision. If you wish to review your current use, check the release note link for additional information.
+Deprecated in NumPy 1.20; for more details and guidance: https://numpy.org/devdocs/release/1.20.0-notes.html#deprecations
+  np.int(min_side*scale))
+/home/aistudio/Tiny-Face-Paddle/utils/nms.py:35: DeprecationWarning: `np.int` is a deprecated alias for the builtin `int`. To silence this warning, use `int` by itself. Doing this will not modify any behavior and is safe. When replacing `np.int`, you may wish to use e.g. `np.int64` or `np.int32` to specify the precision. If you wish to review your current use, check the release note link for additional information.
+Deprecated in NumPy 1.20; for more details and guidance: https://numpy.org/devdocs/release/1.20.0-notes.html#deprecations
+  return np.array(keep).astype(np.int)
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 3226/3226 [30:52<00:00,  1.95it/s]
+evaluation.py:14: DeprecationWarning: `np.float` is a deprecated alias for the builtin `float`. To silence this warning, use `float` by itself. Doing this will not modify any behavior and is safe. If you specifically wanted the numpy scalar type, use `np.float64` here.
+Deprecated in NumPy 1.20; for more details and guidance: https://numpy.org/devdocs/release/1.20.0-notes.html#deprecations
+  from bbox import bbox_overlaps
+Reading Predictions : 100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 61/61 [00:00<00:00, 62.01it/s]
+Processing easy: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 61/61 [00:17<00:00,  3.76it/s]
+Processing medium: 100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 61/61 [00:17<00:00,  3.73it/s]
+Processing hard: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 61/61 [00:17<00:00,  3.74it/s]
+==================== Results ====================
+Easy   Val AP: 0.9008357852299672
+Medium Val AP: 0.8882566395230607
+Hard   Val AP: 0.7754655043539365
+=================================================
+Dataset loaded
+3226 samples in the val dataset
+Dataset loaded
+3226 samples in the val dataset
+W1218 23:50:26.276742 12399 device_context.cc:447] Please NOTE: device: 0, GPU Compute Capability: 7.0, Driver API Version: 10.1, Runtime API Version: 10.1
+W1218 23:50:26.280791 12399 device_context.cc:465] device: 0, cuDNN Version: 7.6.
+/opt/conda/envs/python35-paddle120-env/lib/python3.7/site-packages/paddle/framework/io.py:415: DeprecationWarning: Using or importing the ABCs from 'collections' instead of from 'collections.abc' is deprecated, and in 3.8 it will stop working
+  if isinstance(obj, collections.Iterable) and not isinstance(obj, (
+  0%|                                                                                                                                                 | 0/3226 [00:00<?, ?it/s]/opt/conda/envs/python35-paddle120-env/lib/python3.7/site-packages/paddle/fluid/framework.py:744: DeprecationWarning: `np.bool` is a deprecated alias for the builtin `bool`. To silence this warning, use `bool` by itself. Doing this will not modify any behavior and is safe. If you specifically wanted the numpy scalar type, use `np.bool_` here.
+Deprecated in NumPy 1.20; for more details and guidance: https://numpy.org/devdocs/release/1.20.0-notes.html#deprecations
+  elif dtype == np.bool:
+/home/aistudio/Tiny-Face-Paddle/trainer.py:104: DeprecationWarning: `np.int` is a deprecated alias for the builtin `int`. To silence this warning, use `int` by itself. Doing this will not modify any behavior and is safe. When replacing `np.int`, you may wish to use e.g. `np.int64` or `np.int32` to specify the precision. If you wish to review your current use, check the release note link for additional information.
+Deprecated in NumPy 1.20; for more details and guidance: https://numpy.org/devdocs/release/1.20.0-notes.html#deprecations
+  np.int(min_side*scale))
+/home/aistudio/Tiny-Face-Paddle/utils/nms.py:35: DeprecationWarning: `np.int` is a deprecated alias for the builtin `int`. To silence this warning, use `int` by itself. Doing this will not modify any behavior and is safe. When replacing `np.int`, you may wish to use e.g. `np.int64` or `np.int32` to specify the precision. If you wish to review your current use, check the release note link for additional information.
+Deprecated in NumPy 1.20; for more details and guidance: https://numpy.org/devdocs/release/1.20.0-notes.html#deprecations
+  return np.array(keep).astype(np.int)
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 3226/3226 [31:21<00:00,  1.92it/s]
+evaluation.py:14: DeprecationWarning: `np.float` is a deprecated alias for the builtin `float`. To silence this warning, use `float` by itself. Doing this will not modify any behavior and is safe. If you specifically wanted the numpy scalar type, use `np.float64` here.
+Deprecated in NumPy 1.20; for more details and guidance: https://numpy.org/devdocs/release/1.20.0-notes.html#deprecations
+  from bbox import bbox_overlaps
+Reading Predictions : 100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 61/61 [00:00<00:00, 75.07it/s]
+Processing easy: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 61/61 [00:17<00:00,  3.79it/s]
+Processing medium: 100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 61/61 [00:17<00:00,  3.75it/s]
+Processing hard: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 61/61 [00:17<00:00,  3.76it/s]
+==================== Results ====================
+Easy   Val AP: 0.9045175377697522
+Medium Val AP: 0.8941657954225726
+Hard   Val AP: 0.7790292212229917
+=================================================
+Dataset loaded
+3226 samples in the val dataset
+Dataset loaded
+3226 samples in the val dataset
+W1219 00:22:52.903762 15704 device_context.cc:447] Please NOTE: device: 0, GPU Compute Capability: 7.0, Driver API Version: 10.1, Runtime API Version: 10.1
+W1219 00:22:52.907896 15704 device_context.cc:465] device: 0, cuDNN Version: 7.6.
+/opt/conda/envs/python35-paddle120-env/lib/python3.7/site-packages/paddle/framework/io.py:415: DeprecationWarning: Using or importing the ABCs from 'collections' instead of from 'collections.abc' is deprecated, and in 3.8 it will stop working
+  if isinstance(obj, collections.Iterable) and not isinstance(obj, (
+  0%|                                                                                                                                                 | 0/3226 [00:00<?, ?it/s]/opt/conda/envs/python35-paddle120-env/lib/python3.7/site-packages/paddle/fluid/framework.py:744: DeprecationWarning: `np.bool` is a deprecated alias for the builtin `bool`. To silence this warning, use `bool` by itself. Doing this will not modify any behavior and is safe. If you specifically wanted the numpy scalar type, use `np.bool_` here.
+Deprecated in NumPy 1.20; for more details and guidance: https://numpy.org/devdocs/release/1.20.0-notes.html#deprecations
+  elif dtype == np.bool:
+/home/aistudio/Tiny-Face-Paddle/trainer.py:104: DeprecationWarning: `np.int` is a deprecated alias for the builtin `int`. To silence this warning, use `int` by itself. Doing this will not modify any behavior and is safe. When replacing `np.int`, you may wish to use e.g. `np.int64` or `np.int32` to specify the precision. If you wish to review your current use, check the release note link for additional information.
+Deprecated in NumPy 1.20; for more details and guidance: https://numpy.org/devdocs/release/1.20.0-notes.html#deprecations
+  np.int(min_side*scale))
+/home/aistudio/Tiny-Face-Paddle/utils/nms.py:35: DeprecationWarning: `np.int` is a deprecated alias for the builtin `int`. To silence this warning, use `int` by itself. Doing this will not modify any behavior and is safe. When replacing `np.int`, you may wish to use e.g. `np.int64` or `np.int32` to specify the precision. If you wish to review your current use, check the release note link for additional information.
+Deprecated in NumPy 1.20; for more details and guidance: https://numpy.org/devdocs/release/1.20.0-notes.html#deprecations
+  return np.array(keep).astype(np.int)
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 3226/3226 [30:48<00:00,  1.95it/s]
+evaluation.py:14: DeprecationWarning: `np.float` is a deprecated alias for the builtin `float`. To silence this warning, use `float` by itself. Doing this will not modify any behavior and is safe. If you specifically wanted the numpy scalar type, use `np.float64` here.
+Deprecated in NumPy 1.20; for more details and guidance: https://numpy.org/devdocs/release/1.20.0-notes.html#deprecations
+  from bbox import bbox_overlaps
+Reading Predictions : 100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 61/61 [00:00<00:00, 61.76it/s]
+Processing easy: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 61/61 [00:18<00:00,  3.58it/s]
+Processing medium: 100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 61/61 [00:18<00:00,  3.56it/s]
+Processing hard: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 61/61 [00:18<00:00,  3.57it/s]
+==================== Results ====================
+Easy   Val AP: 0.9035728301846054
+Medium Val AP: 0.8935092441864487
+Hard   Val AP: 0.7854179191558606
+=================================================
+Dataset loaded
+3226 samples in the val dataset
+Dataset loaded
+3226 samples in the val dataset
+W1219 00:54:50.337692 18910 device_context.cc:447] Please NOTE: device: 0, GPU Compute Capability: 7.0, Driver API Version: 10.1, Runtime API Version: 10.1
+W1219 00:54:50.341508 18910 device_context.cc:465] device: 0, cuDNN Version: 7.6.
+/opt/conda/envs/python35-paddle120-env/lib/python3.7/site-packages/paddle/framework/io.py:415: DeprecationWarning: Using or importing the ABCs from 'collections' instead of from 'collections.abc' is deprecated, and in 3.8 it will stop working
+  if isinstance(obj, collections.Iterable) and not isinstance(obj, (
+  0%|                                                                                                                                                 | 0/3226 [00:00<?, ?it/s]/opt/conda/envs/python35-paddle120-env/lib/python3.7/site-packages/paddle/fluid/framework.py:744: DeprecationWarning: `np.bool` is a deprecated alias for the builtin `bool`. To silence this warning, use `bool` by itself. Doing this will not modify any behavior and is safe. If you specifically wanted the numpy scalar type, use `np.bool_` here.
+Deprecated in NumPy 1.20; for more details and guidance: https://numpy.org/devdocs/release/1.20.0-notes.html#deprecations
+  elif dtype == np.bool:
+/home/aistudio/Tiny-Face-Paddle/trainer.py:104: DeprecationWarning: `np.int` is a deprecated alias for the builtin `int`. To silence this warning, use `int` by itself. Doing this will not modify any behavior and is safe. When replacing `np.int`, you may wish to use e.g. `np.int64` or `np.int32` to specify the precision. If you wish to review your current use, check the release note link for additional information.
+Deprecated in NumPy 1.20; for more details and guidance: https://numpy.org/devdocs/release/1.20.0-notes.html#deprecations
+  np.int(min_side*scale))
+/home/aistudio/Tiny-Face-Paddle/utils/nms.py:35: DeprecationWarning: `np.int` is a deprecated alias for the builtin `int`. To silence this warning, use `int` by itself. Doing this will not modify any behavior and is safe. When replacing `np.int`, you may wish to use e.g. `np.int64` or `np.int32` to specify the precision. If you wish to review your current use, check the release note link for additional information.
+Deprecated in NumPy 1.20; for more details and guidance: https://numpy.org/devdocs/release/1.20.0-notes.html#deprecations
+  return np.array(keep).astype(np.int)
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 3226/3226 [30:45<00:00,  1.80it/s]
+evaluation.py:14: DeprecationWarning: `np.float` is a deprecated alias for the builtin `float`. To silence this warning, use `float` by itself. Doing this will not modify any behavior and is safe. If you specifically wanted the numpy scalar type, use `np.float64` here.
+Deprecated in NumPy 1.20; for more details and guidance: https://numpy.org/devdocs/release/1.20.0-notes.html#deprecations
+  from bbox import bbox_overlaps
+Reading Predictions : 100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 61/61 [00:00<00:00, 67.47it/s]
+Processing easy: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 61/61 [00:17<00:00,  3.69it/s]
+Processing medium: 100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 61/61 [00:17<00:00,  3.71it/s]
+Processing hard: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 61/61 [00:17<00:00,  3.67it/s]
+==================== Results ====================
+Easy   Val AP: 0.9032919990201894
+Medium Val AP: 0.8945678213594809
+Hard   Val AP: 0.7846392233703465
+=================================================
+Dataset loaded
+3226 samples in the val dataset
+Dataset loaded
+3226 samples in the val dataset
+W1219 01:26:42.073204 22169 device_context.cc:447] Please NOTE: device: 0, GPU Compute Capability: 7.0, Driver API Version: 10.1, Runtime API Version: 10.1
+W1219 01:26:42.077163 22169 device_context.cc:465] device: 0, cuDNN Version: 7.6.
+/opt/conda/envs/python35-paddle120-env/lib/python3.7/site-packages/paddle/framework/io.py:415: DeprecationWarning: Using or importing the ABCs from 'collections' instead of from 'collections.abc' is deprecated, and in 3.8 it will stop working
+  if isinstance(obj, collections.Iterable) and not isinstance(obj, (
+  0%|                                                                                                                                                 | 0/3226 [00:00<?, ?it/s]/opt/conda/envs/python35-paddle120-env/lib/python3.7/site-packages/paddle/fluid/framework.py:744: DeprecationWarning: `np.bool` is a deprecated alias for the builtin `bool`. To silence this warning, use `bool` by itself. Doing this will not modify any behavior and is safe. If you specifically wanted the numpy scalar type, use `np.bool_` here.
+Deprecated in NumPy 1.20; for more details and guidance: https://numpy.org/devdocs/release/1.20.0-notes.html#deprecations
+  elif dtype == np.bool:
+/home/aistudio/Tiny-Face-Paddle/trainer.py:104: DeprecationWarning: `np.int` is a deprecated alias for the builtin `int`. To silence this warning, use `int` by itself. Doing this will not modify any behavior and is safe. When replacing `np.int`, you may wish to use e.g. `np.int64` or `np.int32` to specify the precision. If you wish to review your current use, check the release note link for additional information.
+Deprecated in NumPy 1.20; for more details and guidance: https://numpy.org/devdocs/release/1.20.0-notes.html#deprecations
+  np.int(min_side*scale))
+/home/aistudio/Tiny-Face-Paddle/utils/nms.py:35: DeprecationWarning: `np.int` is a deprecated alias for the builtin `int`. To silence this warning, use `int` by itself. Doing this will not modify any behavior and is safe. When replacing `np.int`, you may wish to use e.g. `np.int64` or `np.int32` to specify the precision. If you wish to review your current use, check the release note link for additional information.
+Deprecated in NumPy 1.20; for more details and guidance: https://numpy.org/devdocs/release/1.20.0-notes.html#deprecations
+  return np.array(keep).astype(np.int)
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 3226/3226 [30:42<00:00,  1.95it/s]
+evaluation.py:14: DeprecationWarning: `np.float` is a deprecated alias for the builtin `float`. To silence this warning, use `float` by itself. Doing this will not modify any behavior and is safe. If you specifically wanted the numpy scalar type, use `np.float64` here.
+Deprecated in NumPy 1.20; for more details and guidance: https://numpy.org/devdocs/release/1.20.0-notes.html#deprecations
+  from bbox import bbox_overlaps
+Reading Predictions : 100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 61/61 [00:00<00:00, 73.99it/s]
+Processing easy: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 61/61 [00:17<00:00,  3.64it/s]
+Processing medium: 100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 61/61 [00:17<00:00,  3.72it/s]
+Processing hard: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 61/61 [00:17<00:00,  3.75it/s]
+==================== Results ====================
+Easy   Val AP: 0.9050162695143077
+Medium Val AP: 0.896172111245138
+Hard   Val AP: 0.7823840679504529
+=================================================
+Dataset loaded
+3226 samples in the val dataset
+Dataset loaded
+3226 samples in the val dataset
+W1219 01:58:30.176143 25379 device_context.cc:447] Please NOTE: device: 0, GPU Compute Capability: 7.0, Driver API Version: 10.1, Runtime API Version: 10.1
+W1219 01:58:30.179991 25379 device_context.cc:465] device: 0, cuDNN Version: 7.6.
+/opt/conda/envs/python35-paddle120-env/lib/python3.7/site-packages/paddle/framework/io.py:415: DeprecationWarning: Using or importing the ABCs from 'collections' instead of from 'collections.abc' is deprecated, and in 3.8 it will stop working
+  if isinstance(obj, collections.Iterable) and not isinstance(obj, (
+  0%|                                                                                                                                                 | 0/3226 [00:00<?, ?it/s]/opt/conda/envs/python35-paddle120-env/lib/python3.7/site-packages/paddle/fluid/framework.py:744: DeprecationWarning: `np.bool` is a deprecated alias for the builtin `bool`. To silence this warning, use `bool` by itself. Doing this will not modify any behavior and is safe. If you specifically wanted the numpy scalar type, use `np.bool_` here.
+Deprecated in NumPy 1.20; for more details and guidance: https://numpy.org/devdocs/release/1.20.0-notes.html#deprecations
+  elif dtype == np.bool:
+/home/aistudio/Tiny-Face-Paddle/trainer.py:104: DeprecationWarning: `np.int` is a deprecated alias for the builtin `int`. To silence this warning, use `int` by itself. Doing this will not modify any behavior and is safe. When replacing `np.int`, you may wish to use e.g. `np.int64` or `np.int32` to specify the precision. If you wish to review your current use, check the release note link for additional information.
+Deprecated in NumPy 1.20; for more details and guidance: https://numpy.org/devdocs/release/1.20.0-notes.html#deprecations
+  np.int(min_side*scale))
+/home/aistudio/Tiny-Face-Paddle/utils/nms.py:35: DeprecationWarning: `np.int` is a deprecated alias for the builtin `int`. To silence this warning, use `int` by itself. Doing this will not modify any behavior and is safe. When replacing `np.int`, you may wish to use e.g. `np.int64` or `np.int32` to specify the precision. If you wish to review your current use, check the release note link for additional information.
+Deprecated in NumPy 1.20; for more details and guidance: https://numpy.org/devdocs/release/1.20.0-notes.html#deprecations
+  return np.array(keep).astype(np.int)
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 3226/3226 [30:52<00:00,  1.94it/s]
+evaluation.py:14: DeprecationWarning: `np.float` is a deprecated alias for the builtin `float`. To silence this warning, use `float` by itself. Doing this will not modify any behavior and is safe. If you specifically wanted the numpy scalar type, use `np.float64` here.
+Deprecated in NumPy 1.20; for more details and guidance: https://numpy.org/devdocs/release/1.20.0-notes.html#deprecations
+  from bbox import bbox_overlaps
+Reading Predictions : 100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 61/61 [00:00<00:00, 63.80it/s]
+Processing easy: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 61/61 [00:17<00:00,  3.68it/s]
+Processing medium: 100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 61/61 [00:17<00:00,  3.65it/s]
+Processing hard: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 61/61 [00:18<00:00,  3.69it/s]
+==================== Results ====================
+Easy   Val AP: 0.9062028190766006
+Medium Val AP: 0.8958004420256771
+Hard   Val AP: 0.7892988608918371
+=================================================
+Dataset loaded
+3226 samples in the val dataset
+Dataset loaded
+3226 samples in the val dataset
+W1219 02:30:30.393951 28634 device_context.cc:447] Please NOTE: device: 0, GPU Compute Capability: 7.0, Driver API Version: 10.1, Runtime API Version: 10.1
+W1219 02:30:30.397771 28634 device_context.cc:465] device: 0, cuDNN Version: 7.6.
+/opt/conda/envs/python35-paddle120-env/lib/python3.7/site-packages/paddle/framework/io.py:415: DeprecationWarning: Using or importing the ABCs from 'collections' instead of from 'collections.abc' is deprecated, and in 3.8 it will stop working
+  if isinstance(obj, collections.Iterable) and not isinstance(obj, (
+  0%|                                                                                                                                                 | 0/3226 [00:00<?, ?it/s]/opt/conda/envs/python35-paddle120-env/lib/python3.7/site-packages/paddle/fluid/framework.py:744: DeprecationWarning: `np.bool` is a deprecated alias for the builtin `bool`. To silence this warning, use `bool` by itself. Doing this will not modify any behavior and is safe. If you specifically wanted the numpy scalar type, use `np.bool_` here.
+Deprecated in NumPy 1.20; for more details and guidance: https://numpy.org/devdocs/release/1.20.0-notes.html#deprecations
+  elif dtype == np.bool:
+/home/aistudio/Tiny-Face-Paddle/trainer.py:104: DeprecationWarning: `np.int` is a deprecated alias for the builtin `int`. To silence this warning, use `int` by itself. Doing this will not modify any behavior and is safe. When replacing `np.int`, you may wish to use e.g. `np.int64` or `np.int32` to specify the precision. If you wish to review your current use, check the release note link for additional information.
+Deprecated in NumPy 1.20; for more details and guidance: https://numpy.org/devdocs/release/1.20.0-notes.html#deprecations
+  np.int(min_side*scale))
+/home/aistudio/Tiny-Face-Paddle/utils/nms.py:35: DeprecationWarning: `np.int` is a deprecated alias for the builtin `int`. To silence this warning, use `int` by itself. Doing this will not modify any behavior and is safe. When replacing `np.int`, you may wish to use e.g. `np.int64` or `np.int32` to specify the precision. If you wish to review your current use, check the release note link for additional information.
+Deprecated in NumPy 1.20; for more details and guidance: https://numpy.org/devdocs/release/1.20.0-notes.html#deprecations
+  return np.array(keep).astype(np.int)
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 3226/3226 [30:44<00:00,  1.94it/s]
+evaluation.py:14: DeprecationWarning: `np.float` is a deprecated alias for the builtin `float`. To silence this warning, use `float` by itself. Doing this will not modify any behavior and is safe. If you specifically wanted the numpy scalar type, use `np.float64` here.
+Deprecated in NumPy 1.20; for more details and guidance: https://numpy.org/devdocs/release/1.20.0-notes.html#deprecations
+  from bbox import bbox_overlaps
+Reading Predictions : 100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 61/61 [00:00<00:00, 70.22it/s]
+Processing easy: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 61/61 [00:17<00:00,  3.90it/s]
+Processing medium: 100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 61/61 [00:16<00:00,  3.90it/s]
+Processing hard: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 61/61 [00:16<00:00,  3.90it/s]
+==================== Results ====================
+Easy   Val AP: 0.9033007100050027
+Medium Val AP: 0.894598131980632
+Hard   Val AP: 0.7857864702381127
+=================================================
+Dataset loaded
+3226 samples in the val dataset
+Dataset loaded
+3226 samples in the val dataset
+W1219 03:02:19.400871 31809 device_context.cc:447] Please NOTE: device: 0, GPU Compute Capability: 7.0, Driver API Version: 10.1, Runtime API Version: 10.1
+W1219 03:02:19.405082 31809 device_context.cc:465] device: 0, cuDNN Version: 7.6.
+/opt/conda/envs/python35-paddle120-env/lib/python3.7/site-packages/paddle/framework/io.py:415: DeprecationWarning: Using or importing the ABCs from 'collections' instead of from 'collections.abc' is deprecated, and in 3.8 it will stop working
+  if isinstance(obj, collections.Iterable) and not isinstance(obj, (
+  0%|                                                                                                                                                 | 0/3226 [00:00<?, ?it/s]/opt/conda/envs/python35-paddle120-env/lib/python3.7/site-packages/paddle/fluid/framework.py:744: DeprecationWarning: `np.bool` is a deprecated alias for the builtin `bool`. To silence this warning, use `bool` by itself. Doing this will not modify any behavior and is safe. If you specifically wanted the numpy scalar type, use `np.bool_` here.
+Deprecated in NumPy 1.20; for more details and guidance: https://numpy.org/devdocs/release/1.20.0-notes.html#deprecations
+  elif dtype == np.bool:
+/home/aistudio/Tiny-Face-Paddle/trainer.py:104: DeprecationWarning: `np.int` is a deprecated alias for the builtin `int`. To silence this warning, use `int` by itself. Doing this will not modify any behavior and is safe. When replacing `np.int`, you may wish to use e.g. `np.int64` or `np.int32` to specify the precision. If you wish to review your current use, check the release note link for additional information.
+Deprecated in NumPy 1.20; for more details and guidance: https://numpy.org/devdocs/release/1.20.0-notes.html#deprecations
+  np.int(min_side*scale))
+/home/aistudio/Tiny-Face-Paddle/utils/nms.py:35: DeprecationWarning: `np.int` is a deprecated alias for the builtin `int`. To silence this warning, use `int` by itself. Doing this will not modify any behavior and is safe. When replacing `np.int`, you may wish to use e.g. `np.int64` or `np.int32` to specify the precision. If you wish to review your current use, check the release note link for additional information.
+Deprecated in NumPy 1.20; for more details and guidance: https://numpy.org/devdocs/release/1.20.0-notes.html#deprecations
+  return np.array(keep).astype(np.int)
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 3226/3226 [30:50<00:00,  1.95it/s]
+evaluation.py:14: DeprecationWarning: `np.float` is a deprecated alias for the builtin `float`. To silence this warning, use `float` by itself. Doing this will not modify any behavior and is safe. If you specifically wanted the numpy scalar type, use `np.float64` here.
+Deprecated in NumPy 1.20; for more details and guidance: https://numpy.org/devdocs/release/1.20.0-notes.html#deprecations
+  from bbox import bbox_overlaps
+Reading Predictions : 100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 61/61 [00:00<00:00, 63.32it/s]
+Processing easy: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 61/61 [00:17<00:00,  3.71it/s]
+Processing medium: 100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 61/61 [00:18<00:00,  3.68it/s]
+Processing hard: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 61/61 [00:17<00:00,  3.70it/s]
+==================== Results ====================
+Easy   Val AP: 0.9005881720045298
+Medium Val AP: 0.892403904588883
+Hard   Val AP: 0.782829045768721
+=================================================
