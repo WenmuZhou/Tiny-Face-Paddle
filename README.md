@@ -1,5 +1,11 @@
 # Tiny-Face-Paddle
 This is a PaddlePaddle implementation of Peiyun Hu's awesome tiny face detector.
+
+安装依赖
+```shell
+pip install pyclust treelib pyclustering
+```
+
 下载WIDERFACE数据集，配置路径如下
 ```
 /tmp
