@@ -24,3 +24,5 @@ python evaluation.py
 项目日志通过Logger保存在Experiments文件夹下
 原始精度0.902 0.892 0.797
 实现精度0.906 0.895 0.789
+
+每个权重的测试结果在results.txt
