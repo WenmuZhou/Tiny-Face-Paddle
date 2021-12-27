@@ -56,7 +56,6 @@ def main():
 
     model = DetectionModel(num_objects=1, num_templates=num_templates)
     model = paddle.DataParallel(model)
-    model.set_state_dict(paddle.load('initial.pdparams'))
     loss_fn = DetectionCriterion(num_templates)
 
     # directory where we'll store model weights
