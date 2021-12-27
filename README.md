@@ -26,14 +26,11 @@ pip install pyclust treelib pyclustering
 ```
 bash run.sh
 ```
-训练日志如下所示：
+训练保存日志如下所示：
 ```
-2021-12-27 23:13:22,903 - Tiny-Face-Paddle\trainer.py[line:27] - INFO: Epoch: [0][1/1074]      avg_reader_cost: 28.01650 sec   avg_batch_cost: 31.45801 sec    avg_samples: 12.0 samples      avg_ips 0.38146 images/sec      loss_cls: 101.402120    loss_reg: 1.744150
-INFO:Experiments/20211227-23.12/training.log:Epoch: [0][1/1074] avg_reader_cost: 28.01650 sec   avg_batch_cost: 31.45801 sec    avg_samples: 12.0 samples       avg_ips 0.38146 images/sec      loss_cls: 101.402120
-        loss_reg: 1.744150
-2021-12-27 23:13:26,579 - Tiny-Face-Paddle\trainer.py[line:27] - INFO: Epoch: [0][2/1074]      avg_reader_cost: 30.59909 sec   avg_batch_cost: 33.39737 sec    avg_samples: 12.0 samples      avg_ips 0.35931 images/sec      loss_cls: 99.606205     loss_reg: 1.575557
-INFO:Experiments/20211227-23.12/training.log:Epoch: [0][2/1074] avg_reader_cost: 30.59909 sec   avg_batch_cost: 33.39737 sec    avg_samples: 12.0 samples       avg_ips 0.35931 images/sec      loss_cls: 99.606205
-        loss_reg: 1.575557
+2021-12-27 23:13:18,619 - Tiny-Face-Paddle/trainer.py[line:27] - INFO: Epoch: [0][0/1074]	avg_reader_cost: 25.66170 sec	avg_batch_cost: 29.31611 sec	avg_samples: 12.0 samples	avg_ips 0.40933 images/sec	loss_cls: 101.686981	loss_reg: 1.730689
+2021-12-27 23:13:22,903 - Tiny-Face-Paddle/trainer.py[line:27] - INFO: Epoch: [0][1/1074]	avg_reader_cost: 28.01650 sec	avg_batch_cost: 31.45801 sec	avg_samples: 12.0 samples	avg_ips 0.38146 images/sec	loss_cls: 101.402120	loss_reg: 1.744150
+2021-12-27 23:13:26,579 - Tiny-Face-Paddle/trainer.py[line:27] - INFO: Epoch: [0][2/1074]	avg_reader_cost: 30.59909 sec	avg_batch_cost: 33.39737 sec	avg_samples: 12.0 samples	avg_ips 0.35931 images/sec	loss_cls: 99.606205	loss_reg: 1.575557
 ```
 
 ## 测试
