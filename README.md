@@ -72,7 +72,7 @@ python detect.py
 ```
 如下所示
 
-<img src="https://user-images.githubusercontent.com/49911294/147483964-896a7991-cfc7-416a-b5d7-3093a798db8f.jpg" width="450"/>   <img src="https://user-images.githubusercontent.com/49911294/147483984-3e887c1b-d6c4-4972-bccd-a34a32888507.jpg" width="450"/>
+<img src="https://user-images.githubusercontent.com/49911294/147483964-896a7991-cfc7-416a-b5d7-3093a798db8f.jpg" width="400"/>   <img src="https://user-images.githubusercontent.com/49911294/147483984-3e887c1b-d6c4-4972-bccd-a34a32888507.jpg" width="400"/>
 
 
 # **关于作者**
