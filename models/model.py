@@ -1,8 +1,11 @@
 import numpy as np
+import math
 import paddle
 from paddle import nn
 from paddle.vision.models import resnet50, resnet101
 from paddle import ParamAttr
+from .initializer import kaiming_uniform_, _calculate_fan_in_and_fan_out
+import sys
 
 
 class DetectionModel(nn.Layer):
@@ -24,9 +27,18 @@ class DetectionModel(nn.Layer):
                                     padding=0,
                                     weight_attr=ParamAttr(learning_rate=0.1),
                                     bias_attr=ParamAttr(learning_rate=0.1))
+
+        self.score_res3.weight.set_value(kaiming_uniform_(paddle.empty(self.score_res3.weight.shape, dtype=paddle.float32), a=math.sqrt(5)))
+        fan_in, _ = _calculate_fan_in_and_fan_out(self.score_res3.weight)
+        bound = 1 / math.sqrt(fan_in)
+        self.score_res3.bias.set_value(paddle.uniform(shape=self.score_res3.bias.shape, dtype='float32', min=-bound, max=bound))
         
         self.score_res4 = nn.Conv2D(in_channels=1024, out_channels=output,
                                     kernel_size=1, padding=0)
+        self.score_res4.weight.set_value(kaiming_uniform_(paddle.empty(self.score_res4.weight.shape, dtype=paddle.float32), a=math.sqrt(5)))
+        fan_in, _ = _calculate_fan_in_and_fan_out(self.score_res4.weight)
+        bound = 1 / math.sqrt(fan_in)
+        self.score_res4.bias.set_value(paddle.uniform(shape=self.score_res4.bias.shape, dtype='float32', min=-bound, max=bound))
 
         self.score4_upsample = nn.Conv2DTranspose(in_channels=output,
                                                   out_channels=output,
