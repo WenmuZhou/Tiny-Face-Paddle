@@ -16,7 +16,7 @@ pip install pyclust treelib pyclustering
 |--WIDER_val
 |--wider_face_split
 ```
-本仓库利用四卡1080ti耗时三天训练100个epoch，所有文件在[此处下载](https://pan.baidu.com/s/1grltos3o03ybsRwNdy8-DA)，code:ser1，AIStudio项目仓库[点击此处](https://aistudio.baidu.com/aistudio/projectdetail/3208437?contributionType=1)【完善中】
+本仓库利用四卡1080ti耗时三天训练100个epoch，所有文件在[此处下载](https://pan.baidu.com/s/1grltos3o03ybsRwNdy8-DA)，code:ser1，AIStudio项目仓库[点击此处](https://aistudio.baidu.com/aistudio/projectdetail/3208437?contributionType=1)
 
 **注意到：`main_multi_gpu.py`使用`spawn`机制，完美兼容单卡训练**
 
