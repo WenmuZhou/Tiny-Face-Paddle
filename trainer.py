@@ -6,14 +6,21 @@ from paddle.nn import functional as F
 from transforms_utils import ToPILImage, to_pil_image
 from paddle.vision import transforms
 import paddle.distributed as dist
+import time
 
 from models.utils import get_bboxes
 from utils.nms import nms
 
 
-def print_state(idx, epoch, size, loss_cls, loss_reg, log):
+def print_state(idx, epoch, size, loss_cls, loss_reg, log, train_reader_cost, batch_past, train_run_cost, total_samples):
     if epoch >= 0:
-        message = "Epoch: [{0}][{1}/{2}]\t".format(epoch, idx, size)
+        message = "Epoch: [{0}][{1}/{2}]\tavg_reader_cost: {3:.5f} sec\tavg_batch_cost: {4:.5f} sec\tavg_samples: {5} samples\tavg_ips {6:.5f} images/sec".format(epoch,
+                  idx,
+                  size,
+                  train_reader_cost / batch_past,
+                  (train_reader_cost + train_run_cost) / batch_past,
+                  total_samples / batch_past,
+                  total_samples / (train_reader_cost + train_run_cost))
     else:
         message = "Val: [{0}/{1}]\t".format(idx, size)
     if paddle.distributed.ParallelEnv().local_rank == 0:
@@ -22,7 +29,7 @@ def print_state(idx, epoch, size, loss_cls, loss_reg, log):
               '\tloss_reg: {loss_reg:.6f}'.format(loss_cls=loss_cls, loss_reg=loss_reg))
 
 
-def save_checkpoint(state, filename="checkpoint.pth", save_path="weights"):
+def save_checkpoint(state, filename="checkpoint.pdparams", save_path="weights"):
     # check if the save directory exists
     if not Path(save_path).exists():
         Path(save_path).mkdir()
@@ -59,8 +66,14 @@ def draw_bboxes(image, img_id, bboxes, scores, scales, processor):
 
 def train(model, loss_fn, optimizer, dataloader, epoch, log):
     model.train()
-
+    train_reader_cost = 0.0
+    train_run_cost = 0.0
+    total_samples = 0
+    batch_past = 0
+    reader_start = time.time()
     for idx, (img, class_map, regression_map) in enumerate(dataloader):
+        train_reader_cost += time.time() - reader_start
+        train_start = time.time()
         x = img.astype(paddle.float32)
 
         class_map_var = class_map.astype(paddle.float32)
@@ -76,10 +89,15 @@ def train(model, loss_fn, optimizer, dataloader, epoch, log):
         # Get the gradients
         loss.backward()
         optimizer.step()
+        train_run_cost += time.time() - train_start
+        total_samples += img.shape[0]
+        batch_past += 1
 
         print_state(idx, epoch, len(dataloader),
                     loss_fn.class_average.average,
-                    loss_fn.reg_average.average, log)
+                    loss_fn.reg_average.average,
+                    log, train_reader_cost, batch_past,
+                    train_run_cost, total_samples)
 
 
 def get_detections(model, img, templates, rf, img_transforms,
