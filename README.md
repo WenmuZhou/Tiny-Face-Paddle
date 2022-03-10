@@ -22,9 +22,9 @@ pip install pyclust treelib pyclustering
 
 
 ## 训练
-训练时，运行run.sh
+训练时，运main_multi_gpu.py
 ```
-bash run.sh
+python main_multi_gpu.py --train_img_root --train_label_path
 ```
 训练保存日志如下所示：
 ```
@@ -45,14 +45,14 @@ python setup.py build_ext --inplace
 ### 测试文件生成
 通过evaluat.py生成测试文件
 ```shell
-python evaluate.py --val_img_root x --val_label_path x --checkpoint x
+python evaluate.py --val_img_root x --val_label_path x --checkpoint x --results_dir=results_dir
 ```
 
 ### 精度评估
 进入`widerface_evaluate`文件夹，通过`evaluation.py`测试精度
 ```shell
 cd widerface_evaluate
-python evaluation.py
+python evaluation.py -p=results_dir
 ```
 
 项目日志通过Logger保存在Experiments文件夹下
@@ -63,7 +63,7 @@ python evaluation.py
 每个权重的测试结果在results.txt**
 
 ## 推理
-运行`detect.py`自动获取示例图像的推断结果，保存为`result.jpg`
+运行`predict.py`自动获取示例图像的推断结果，保存为`result.jpg`
 ```shell
 python predict.py --image_path --checkpoint
 ```
