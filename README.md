@@ -45,7 +45,7 @@ python setup.py build_ext --inplace
 ### 测试文件生成
 通过evaluat.py生成测试文件
 ```shell
-python evaluate.py /tmp/WIDERFACE/wider_face_split/wider_face_val_bbx_gt.txt --dataset-root /tmp/WIDERFACE/ --checkpoint weights/checkpoint_80.pdparams --split val
+python evaluate.py --val_img_root x --val_label_path x --checkpoint x
 ```
 
 ### 精度评估
@@ -65,12 +65,23 @@ python evaluation.py
 ## 推理
 运行`detect.py`自动获取示例图像的推断结果，保存为`result.jpg`
 ```shell
-python detect.py
+python predict.py --image_path --checkpoint
 ```
 如下所示
 
 <img src="https://user-images.githubusercontent.com/49911294/147483964-896a7991-cfc7-416a-b5d7-3093a798db8f.jpg" width="400"/>   <img src="https://user-images.githubusercontent.com/49911294/147483984-3e887c1b-d6c4-4972-bccd-a34a32888507.jpg" width="400"/>
 
+## 模型导出
+运行`export_model.py`进行动转静
+```shell
+python export_model.py --checkpoint
+```
+
+## 推理模型预测
+运行`infer.py`进行推理
+```shell
+python export_model.py --checkpoint
+```
 
 # **关于作者**
 <img src="https://ai-studio-static-online.cdn.bcebos.com/cb9a1e29b78b43699f04bde668d4fc534aa68085ba324f3fbcb414f099b5a042" width="100"/>

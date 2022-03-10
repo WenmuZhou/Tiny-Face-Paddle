@@ -6,9 +6,9 @@ from .wider_face import WIDERFace
 from paddle.io import DataLoader, DistributedBatchSampler
 
 
-def get_dataloader(datapath, args, num_templates=25,
+def get_dataloader(args, label_path, img_root, num_templates=25,
                    template_file="templates.json", img_transforms=None,
-                   train=True, split="train"):
+                   train=True):
     template_file = osp.join("datasets", template_file)
 
     if osp.exists(template_file):
@@ -16,7 +16,7 @@ def get_dataloader(datapath, args, num_templates=25,
 
     else:
         # Cluster the bounding boxes to get the templates
-        dataset = WIDERFace(osp.expanduser(args.traindata), [])
+        dataset = WIDERFace(label_path, img_root, [],train=train)
         clustering = compute_kmedoids(dataset.get_all_bboxes(), 1, indices=num_templates,
                                       option='pyclustering', max_clusters=num_templates)
 
@@ -28,12 +28,10 @@ def get_dataloader(datapath, args, num_templates=25,
 
     templates = np.round_(np.array(templates), decimals=8)
 
-    batch_sampler=DistributedBatchSampler(WIDERFace(osp.expanduser(datapath), templates,
-                                            train=train, split=split, img_transforms=img_transforms,
-                                            dataset_root=osp.expanduser(args.dataset_root),
-                                            debug=args.debug), batch_size=args.batch_size, shuffle=train)
-    data_loader = DataLoader(WIDERFace(osp.expanduser(datapath), templates,
-                                            train=train, split=split, img_transforms=img_transforms,
-                                            dataset_root=osp.expanduser(args.dataset_root),
-                                            debug=args.debug), batch_sampler=batch_sampler, num_workers=args.workers)
+    dataset = WIDERFace(label_path, img_root, templates,
+                        img_transforms=img_transforms,
+                        debug=args.debug,
+                        train=train)
+    batch_sampler=DistributedBatchSampler(dataset, batch_size=args.batch_size, shuffle=train)
+    data_loader = DataLoader(dataset, batch_sampler = batch_sampler, num_workers = args.workers)
     return data_loader, templates

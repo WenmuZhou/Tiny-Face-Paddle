@@ -14,9 +14,8 @@ from models.model import DetectionModel
 
 def arguments():
     parser = argparse.ArgumentParser("Model Evaluator")
-    parser.add_argument("dataset")
-    parser.add_argument("--split", default="val")
-    parser.add_argument("--dataset-root")
+    parser.add_argument("--val_img_root", default="")
+    parser.add_argument("--val_label_path", default="")
     parser.add_argument("--checkpoint",
                         help="The path to the model checkpoint", default="")
     parser.add_argument("--prob_thresh", type=float, default=0.03)
@@ -36,9 +35,7 @@ def dataloader(args):
                                          transforms.Normalize(mean=[0.485, 0.456, 0.406],
                                                              std=[0.229, 0.224, 0.225])])
 
-    val_loader, templates = get_dataloader(args.dataset, args,
-                                           train=False, split=args.split,
-                                           img_transforms=val_transforms)
+    val_loader, templates = get_dataloader(args, args.val_label_path, args.val_img_root, train=False, img_transforms=val_transforms)
     return val_loader, templates
 
 
@@ -50,8 +47,8 @@ def get_model(checkpoint=None, num_templates=25):
     return model
 
 
-def write_results(dets, img_path, split, results_dir=None):
-    results_dir = results_dir or "{0}_results".format(split)
+def write_results(dets, img_path, results_dir=None):
+    results_dir = results_dir or "results"
 
     if not osp.exists(results_dir):
         os.makedirs(results_dir)
@@ -80,14 +77,13 @@ def run(model,
         templates,
         prob_thresh,
         nms_thresh,
-        split,
         results_dir=None,
         debug=False):
     for idx, (img, filename) in tqdm(enumerate(val_loader), total=len(val_loader)):
         dets = trainer.get_detections(model, img, templates, val_loader.dataset.rf,
                                       val_loader.dataset.transforms, prob_thresh,
                                       nms_thresh)
-        write_results(dets, filename[0], split, results_dir)
+        write_results(dets, filename[0], results_dir)
     return dets
 
 
@@ -105,7 +101,6 @@ def main():
             templates,
             args.prob_thresh,
             args.nms_thresh,
-            args.split,
             results_dir=args.results_dir,
             debug=args.debug)
 

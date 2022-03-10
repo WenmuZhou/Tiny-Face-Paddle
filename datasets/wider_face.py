@@ -1,4 +1,4 @@
-from pathlib import Path
+import os
 
 import numpy as np
 from PIL import Image
@@ -15,32 +15,29 @@ class WIDERFace(Dataset):
     so a lot of small housekeeping elements have been added
     to take care of the indexing discrepancies."""
 
-    def __init__(self, path, templates, img_transforms=None, dataset_root="", split="train",
-                 train=True, input_size=(500, 500), heatmap_size=(63, 63),
-                 pos_thresh=0.7, neg_thresh=0.3, pos_fraction=0.5, debug=False):
+    def __init__(self, label_path, img_root, templates, img_transforms=None, input_size=(500, 500), heatmap_size=(63, 63),
+                 pos_thresh=0.7, neg_thresh=0.3, pos_fraction=0.5, debug=False, train=True):
         super().__init__()
 
         self.data = []
-        self.split = split
 
-        self.load(path)
+        self.load(label_path)
 
         print("Dataset loaded")
-        print("{0} samples in the {1} dataset".format(len(self.data),
-                                                      self.split))
-        # self.data = data
+        print("{0} samples in the dataset".format(len(self.data)))
 
         # canonical object templates obtained via clustering
         # NOTE we directly use the values from Peiyun's repository stored in "templates.json"
         self.templates = templates
 
         self.transforms = img_transforms
-        self.dataset_root = Path(dataset_root)
+        self.dataset_root = img_root
         self.input_size = input_size
         self.heatmap_size = heatmap_size
         self.pos_thresh = pos_thresh
         self.neg_thresh = neg_thresh
         self.pos_fraction = pos_fraction
+        self.train = train
 
         # receptive field computed using a combination of values from Matconvnet
         # plus derived equations.
@@ -58,59 +55,54 @@ class WIDERFace(Dataset):
     def load(self, path):
         """Load the dataset from the text file."""
 
-        if self.split in ("train", "val"):
-            lines = open(path).readlines()
-            self.data = []
-            idx = 0
+        lines = open(path).readlines()
+        self.data = []
+        idx = 0
 
-            while idx < len(lines):
-                img = lines[idx].strip()
+        while idx < len(lines):
+            img = lines[idx].strip()
+            idx += 1
+            n = int(lines[idx].strip())
+            idx += 1
+
+            bboxes = np.empty((n, 10))
+
+            if n == 0:
                 idx += 1
-                n = int(lines[idx].strip())
-                idx += 1
-
-                bboxes = np.empty((n, 10))
-
-                if n == 0:
+            else:
+                for b in range(n):
+                    bboxes[b, :] = [abs(float(x))
+                                    for x in lines[idx].strip().split()]
                     idx += 1
-                else:
-                    for b in range(n):
-                        bboxes[b, :] = [abs(float(x))
-                                        for x in lines[idx].strip().split()]
-                        idx += 1
 
-                # remove invalid bboxes where w or h are 0
-                invalid = np.where(np.logical_or(bboxes[:, 2] == 0,
-                                                 bboxes[:, 3] == 0))
-                bboxes = np.delete(bboxes, invalid, 0)
+            # remove invalid bboxes where w or h are 0
+            invalid = np.where(np.logical_or(bboxes[:, 2] == 0,
+                                                bboxes[:, 3] == 0))
+            bboxes = np.delete(bboxes, invalid, 0)
 
-                # bounding boxes are 1 indexed so we keep them like that
-                # and treat them as abstract geometrical objects
-                # We only need to worry about the box indexing when actually rendering them
+            # bounding boxes are 1 indexed so we keep them like that
+            # and treat them as abstract geometrical objects
+            # We only need to worry about the box indexing when actually rendering them
 
-                # convert from (x, y, w, h) to (x1, y1, x2, y2)
-                # We work with the two point representation
-                # since cropping becomes easier to deal with
-                # -1 to ensure the same representation as in Matlab.
-                bboxes[:, 2] = bboxes[:, 0] + bboxes[:, 2] - 1
-                bboxes[:, 3] = bboxes[:, 1] + bboxes[:, 3] - 1
+            # convert from (x, y, w, h) to (x1, y1, x2, y2)
+            # We work with the two point representation
+            # since cropping becomes easier to deal with
+            # -1 to ensure the same representation as in Matlab.
+            bboxes[:, 2] = bboxes[:, 0] + bboxes[:, 2] - 1
+            bboxes[:, 3] = bboxes[:, 1] + bboxes[:, 3] - 1
 
-                datum = {
-                    "img_path": img,
-                    "bboxes": bboxes[:, 0:4],
-                    "blur": bboxes[:, 4],
-                    "expression": bboxes[:, 5],
-                    "illumination": bboxes[:, 6],
-                    "invalid": bboxes[:, 7],
-                    "occlusion": bboxes[:, 8],
-                    "pose": bboxes[:, 9]
-                }
+            datum = {
+                "img_path": img,
+                "bboxes": bboxes[:, 0:4],
+                "blur": bboxes[:, 4],
+                "expression": bboxes[:, 5],
+                "illumination": bboxes[:, 6],
+                "invalid": bboxes[:, 7],
+                "occlusion": bboxes[:, 8],
+                "pose": bboxes[:, 9]
+            }
 
-                self.data.append(datum)
-
-        elif self.split == "test":
-            data = open(path).readlines()
-            self.data = [{'img_path': x.strip()} for x in data]
+            self.data.append(datum)
 
     def get_all_bboxes(self):
         bboxes = np.empty((0, 4))
@@ -182,11 +174,10 @@ class WIDERFace(Dataset):
     def __getitem__(self, index):
         datum = self.data[index]
 
-        image_root = self.dataset_root / "WIDER_{0}".format(self.split)
-        image_path = image_root / "images" / datum['img_path']
+        image_path = os.path.join(self.dataset_root, datum['img_path'])
         image = Image.open(image_path).convert('RGB')
 
-        if self.split == 'train':
+        if self.train:
             bboxes = datum['bboxes']
 
             if self.debug:
@@ -196,7 +187,7 @@ class WIDERFace(Dataset):
                 print("image path:\t", image_path)
 
             img, class_map, reg_map, bboxes = self.process_inputs(image,
-                                                                  bboxes)
+                                                                    bboxes)
 
             if self.transforms is not None:
                 # if img is a byte or uint8 array, it will convert from 0-255 to 0-1
@@ -204,19 +195,8 @@ class WIDERFace(Dataset):
                 img = self.transforms(img)
 
             return img, class_map, reg_map
-
-        elif self.split == 'val':
-            # NOTE Return only the image and the image path.
-            # Use the eval_tools to get the final results.
+        else:
             if self.transforms is not None:
                 # Only convert to tensor since we do normalization after rescaling
                 img = transforms.functional.to_tensor(image)
             return img, datum['img_path']
-
-        elif self.split == 'test':
-            filename = datum['img_path']
-
-            if self.transforms is not None:
-                img = self.transforms(image)
-
-            return img, filename

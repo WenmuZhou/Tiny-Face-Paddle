@@ -120,16 +120,13 @@ def get_detections(model, img, templates, rf, img_transforms,
         # scale the images
         scaled_image = transforms.functional.resize(image,
                                                     np.int(min_side*scale))
-
         # normalize the images
         img = img_transforms(scaled_image)
         img = paddle.to_tensor(img, dtype=paddle.float32)
         # add batch dimension
         img.unsqueeze_(0)
-
         # now run the model
         output = model(img)
-
         # first `num_templates` channels are class maps
         score_cls = output[:, :num_templates, :, :]
         prob_cls = F.sigmoid(score_cls)

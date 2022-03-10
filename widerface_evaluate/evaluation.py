@@ -243,6 +243,8 @@ def evaluation(pred, gt_path, iou_thresh=0.5):
         for i in pbar:
             pbar.set_description('Processing {}'.format(settings[setting_id]))
             event_name = str(event_list[i][0][0])
+            if event_name not in pred:
+                    continue
             img_list = file_list[i][0]
             pred_list = pred[event_name]
             sub_gt_list = gt_list[i][0]
@@ -250,6 +252,8 @@ def evaluation(pred, gt_path, iou_thresh=0.5):
             gt_bbx_list = facebox_list[i][0]
 
             for j in range(len(img_list)):
+                if str(img_list[j][0][0]) not in pred_list:
+                    continue
                 pred_info = pred_list[str(img_list[j][0][0])]
 
                 gt_boxes = gt_bbx_list[j][0].astype('float')

@@ -1,4 +1,3 @@
-paddlepaddle-gpu==2.2.1
 pyclust==0.2.0
 treelib==1.6.1
 pyclustering==0.10.1.2
