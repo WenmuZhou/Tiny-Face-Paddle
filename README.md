@@ -65,7 +65,7 @@ python evaluation.py -p=results_dir
 ## 推理
 运行`predict.py`自动获取示例图像的推断结果，保存为`result.jpg`
 ```shell
-python predict.py --image_path --checkpoint
+python predict.py --image_path --checkpoint=your_model_parh
 ```
 如下所示
 
@@ -74,13 +74,13 @@ python predict.py --image_path --checkpoint
 ## 模型导出
 运行`export_model.py`进行动转静
 ```shell
-python export_model.py --checkpoint
+python export_model.py --checkpoint=your_model_parh
 ```
 
 ## 推理模型预测
 运行`infer.py`进行推理
 ```shell
-python export_model.py --checkpoint
+python infer.py --inference_model=your_inference_parh --image_path=assets/test.jpg
 ```
 
 # **关于作者**

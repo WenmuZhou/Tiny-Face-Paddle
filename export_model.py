@@ -55,7 +55,7 @@ if __name__ == "__main__":
     parser = ArgumentParser()
     parser.add_argument('--model', default="DABNet", help="model name: Context Guided Network (CGNet)")
     parser.add_argument('--checkpoint', type=str,
-                        default="./checkpoint/camvid/DABNetbs16gpu1_trainval/model_1000.pth",
+                        default="",
                         help="use the file to load the checkpoint for evaluating or testing ")
     parser.add_argument('--dataset', default="cityscapes", help="dataset: cityscapes or camvid")
     parser.add_argument('--save_path', default="inference_models", help="inference model save path")

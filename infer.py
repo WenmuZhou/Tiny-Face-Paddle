@@ -174,11 +174,16 @@ def paddle_inference(args):
     for img_path in img_list:
         img_name = os.path.basename(img_path)
         img_raw = Image.open(img_path).convert('RGB')
+        w,h = img_raw.size
+        resize_h = max(int(round(w / 32) * 32), 32)
+        resize_w = max(int(round(h / 32) * 32), 32)
+
+        img_in = img_raw.resize((resize_w, resize_h))
         st = time.time()
         if args.benchmark:
             autolog.times.start()
 
-        img = val_transforms(img_raw)
+        img = val_transforms(img_in)
         img = np.array(img)
         # add batch dimension
         img = np.expand_dims(img,axis=0)
